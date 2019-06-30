@@ -7,6 +7,8 @@ import mquinn.sign_language.svm.LetterClass;
 import org.opencv.core.Core;
 import org.opencv.ml.SVM;
 
+import java.util.Arrays;
+
 public class SvmTestRunner {
 
     private SVM svm;
@@ -14,7 +16,7 @@ public class SvmTestRunner {
 
     private PcaData pcaData;
 
-    private int[][] resultsMat = new int[3][3];
+    private int[][] resultsMat = new int[4][4];
 
     private LetterClass actualResult;
 
@@ -56,7 +58,7 @@ public class SvmTestRunner {
             intResults[row][1] = (int)testData.labels.get(row,0)[0];
 
             // fill in confusion matrix
-            resultsMat[(int)testData.labels.get(row,0)[0] - 1][(int)response - 1]++;
+            resultsMat[(int)testData.labels.get(row,0)[0]][(int)response]++;
 
         }
 
@@ -65,15 +67,15 @@ public class SvmTestRunner {
 
         logger.log("Actual Testing Time: " + TimeFormatter.millisToTime(testingTotal), true);
 
-        int[][][] finalMatrix = new int[3][4][rows];
+        int[][][] finalMatrix = new int[4][4][rows];
 
-        for (int i=0; i<3; i++){
+        for (int i=0; i<4; i++){
             for (int j=0; j < rows; j++){
                 int sample = j+1;
                 // for any non empty cells
                 if (intResults[j][0] != 0 && intResults[j][1] != 0) {
                     // for correct predictions equal to this class in the loop
-                    if (i == intResults[j][1]-1 && i == intResults[j][0]-1) {
+                    if (i == intResults[j][1] && i == intResults[j][0]) {
                         // for correct predictions
                         if (intResults[j][0] == intResults[j][1]) {
                             // True Positive
@@ -81,8 +83,8 @@ public class SvmTestRunner {
                             finalMatrix[i][0][j] = sample;
                             // True Negative
                             // add true negative to every other class in the matrix
-                            for (int k=0; k<3; k++){
-                                if (k != (intResults[j][1])-1) {
+                            for (int k=0; k<4; k++){
+                                if (k != (intResults[j][1])) {
                                     finalMatrix[k][1][j] = sample;
                                 }
                             }
@@ -90,11 +92,11 @@ public class SvmTestRunner {
                     // otherwise for non matching class predictions
                     } else {
                         // if predicted class is current class
-                        if (i == intResults[j][1]-1) {
+                        if (i == intResults[j][1]) {
                             // False Positive
                             finalMatrix[i][2][j] = sample;
                         // else if actual class was current class
-                        } else if (i == intResults[j][0]-1) {
+                        } else if (i == intResults[j][0]) {
                             // False Negative
                             finalMatrix[i][3][j] = sample;
                         }
@@ -108,9 +110,9 @@ public class SvmTestRunner {
         logger.log("SAMPLE CATEGORY MATRIX", true);
         logger.log("______________________", true);
         logger.log("", true);
-        for (int i=0; i< 3 ; i++) {
-            logger.log("CLASS: " + (char)(i+65), true);
-            for (int j=0; j < 4 ; j++){
+        for (int i = 0; i < 4 ; i++) {
+            logger.log("CLASS: " + LetterClass.getLetter(i), true);
+            for (int j = 0; j < 4 ; j++){
                 switch (j){
                     case 0:
                         logger.log("TP: ", false);
@@ -135,14 +137,16 @@ public class SvmTestRunner {
                 logger.log("", true);
             }
             logger.log("", true);
+
+            System.out.println(Arrays.deepToString(finalMatrix));
         }
 
         // Print confusion matrix simple
         logger.log("SIMPLE CONFUSION MATRIX", true);
         logger.log("______________________", true);
         logger.log("", true);
-        for (int i=0; i< 3 ; i++) {
-            for (int j=0; j < 3 ; j++){
+        for (int i = 0; i < 4 ; i++) {
+            for (int j = 0; j < 4 ; j++){
                 logger.log(resultsMat[i][j] + " ", false);
             }
             // Log
