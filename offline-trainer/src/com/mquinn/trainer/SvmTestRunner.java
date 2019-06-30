@@ -14,7 +14,7 @@ public class SvmTestRunner {
 
     private PcaData pcaData;
 
-    private int[][] resultsMat = new int[26][26];
+    private int[][] resultsMat = new int[3][3];
 
     private LetterClass actualResult;
 
@@ -65,9 +65,9 @@ public class SvmTestRunner {
 
         logger.log("Actual Testing Time: " + TimeFormatter.millisToTime(testingTotal), true);
 
-        int[][][] finalMatrix = new int[26][4][rows];
+        int[][][] finalMatrix = new int[3][4][rows];
 
-        for (int i=0; i<26; i++){
+        for (int i=0; i<3; i++){
             for (int j=0; j < rows; j++){
                 int sample = j+1;
                 // for any non empty cells
@@ -81,7 +81,7 @@ public class SvmTestRunner {
                             finalMatrix[i][0][j] = sample;
                             // True Negative
                             // add true negative to every other class in the matrix
-                            for (int k=0; k<26; k++){
+                            for (int k=0; k<3; k++){
                                 if (k != (intResults[j][1])-1) {
                                     finalMatrix[k][1][j] = sample;
                                 }
@@ -108,7 +108,7 @@ public class SvmTestRunner {
         logger.log("SAMPLE CATEGORY MATRIX", true);
         logger.log("______________________", true);
         logger.log("", true);
-        for (int i=0; i< 26 ; i++) {
+        for (int i=0; i< 3 ; i++) {
             logger.log("CLASS: " + (char)(i+65), true);
             for (int j=0; j < 4 ; j++){
                 switch (j){
@@ -141,8 +141,8 @@ public class SvmTestRunner {
         logger.log("SIMPLE CONFUSION MATRIX", true);
         logger.log("______________________", true);
         logger.log("", true);
-        for (int i=0; i< 26 ; i++) {
-            for (int j=0; j < 26 ; j++){
+        for (int i=0; i< 3 ; i++) {
+            for (int j=0; j < 3 ; j++){
                 logger.log(resultsMat[i][j] + " ", false);
             }
             // Log

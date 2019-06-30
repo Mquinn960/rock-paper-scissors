@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sign Language</string>
+    <string name="app_name">Rock Paper Scissors</string>
 
 
     <string name="str_button_add">Add</string>

@@ -45,7 +45,8 @@ public class SvmPrepFrameProcessor implements IFrameProcessor {
 
         flatFeatures.convertTo(flatFeatures, CvType.CV_32FC1);
 
-        String letter = workingFile.getName().substring(0,1).toUpperCase();
+        String[] data = workingFile.getName().split("_");
+        String letter = data[0];
 
         resolveLetterLabel(letter);
 
@@ -58,7 +59,7 @@ public class SvmPrepFrameProcessor implements IFrameProcessor {
         flatFeatures.release();
         singleLabel.release();
 
-        Logger.getAnonymousLogger().log(Level.INFO, "LETTER CLASS: " + LetterClass.getLetter(letterLabel));
+        Logger.getAnonymousLogger().log(Level.INFO, "CLASS: " + LetterClass.getLetter(letterLabel));
 
     }
 
@@ -71,11 +72,7 @@ public class SvmPrepFrameProcessor implements IFrameProcessor {
     }
 
     private void resolveLetterLabel(String inputLetter){
-        if (inputLetter.equals("_")) {
-            letterLabel = LetterClass.getIndex("NONE");
-        } else if (inputLetter.equals("%")) {
-            letterLabel = LetterClass.getIndex("SPACE");
-        } else if (inputLetter.matches("[A-Z]+")){
+        if (inputLetter.matches("[A-Z]+")) {
             letterLabel = LetterClass.getIndex(inputLetter);
         } else {
             letterLabel = LetterClass.getIndex("ERROR");

@@ -17,35 +17,27 @@ public class Main {
 
         int runNumber = 1;
 
-        final String DATASETS_FOLDER = "F:\\Hand Dataset\\Live\\";
-        final String RESULTS_FOLDER = "F:\\Hand Dataset\\Results\\";
+        final String DATASETS_FOLDER = "..\\datasets\\";
+        final String RESULTS_FOLDER = "..\\results\\";
 
         // Feature detection methods
         DetectionMethod[] detectionMethods = new DetectionMethod[]{
-            DetectionMethod.CONTOUR_MASK,
-            DetectionMethod.CANNY_EDGES,
-            DetectionMethod.SKELETON
+            DetectionMethod.CANNY_EDGES
         };
 
         // SVM kernel types
         String[] kernels = new String[]{
-            "linear",
             "rbf"
         };
 
         // Methods of dimensionality reduction
         String[] dimReduceType = new String[]{
-            "none",
-            "pca"
+            "none"
         };
 
         // List of datasets for processing available in the DATASETS_FOLDER
         String[] datasets = new String[]{
-            "own",
-            "grassnoted",
-            "pugeault",
-            "mon95",
-            "ownbsl"
+            "career-ready"
         };
 
         emailNotifier.sendNotification("A new batch training run is commencing.", "Batch run beginning");

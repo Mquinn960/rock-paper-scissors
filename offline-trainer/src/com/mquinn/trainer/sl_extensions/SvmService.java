@@ -18,6 +18,7 @@ public class SvmService {
     private PcaData pcaData = new PcaData();
 
     private final String TRAINED_PATH = "trained.xml";
+    private final String BASE_PATH = "..\\trained-models\\";
 
     private int runCounter;
 
@@ -97,7 +98,7 @@ public class SvmService {
 
         logger.log("", true);
 
-        svm.save(runCounter + "_" + TRAINED_PATH);
+        svm.save(BASE_PATH + runCounter + "_" + TRAINED_PATH);
 
     }
 

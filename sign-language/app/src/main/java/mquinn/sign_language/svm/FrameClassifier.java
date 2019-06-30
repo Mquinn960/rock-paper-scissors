@@ -67,6 +67,14 @@ public class FrameClassifier implements IFrameProcessor {
         result = LetterClass.getLetter((int)response);
         workingFrame.setLetterClass(result);
 
+        Imgproc.putText(workingFrame.getRGBA(),
+                workingFrame.getLetterClass().toString(),
+                new Point(100,180),
+                Core.FONT_HERSHEY_PLAIN,
+                2,
+                new Scalar(255,255,255),
+                2);
+
         Log.d("DEBUG", "LETTER CLASS: " + result);
     }
 

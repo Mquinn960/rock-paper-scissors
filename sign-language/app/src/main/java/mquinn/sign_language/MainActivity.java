@@ -26,6 +26,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 
+
 import mquinn.sign_language.imaging.IFrame;
 import mquinn.sign_language.processing.DetectionMethod;
 import mquinn.sign_language.processing.DownSamplingFrameProcessor;
@@ -149,13 +150,18 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
         // Actual frame classification
         classifiedFrame = frameClassifier.process(postProcessedFrame);
 
-        previousLetter = currentLetter;
-        currentLetter = getDisplayableLetter(classifiedFrame.getLetterClass().toString());
 
-        setLetterIfChanged();
+        // NAY
+//        previousLetter = currentLetter;
+//        currentLetter = getDisplayableLetter(classifiedFrame.getLetterClass().toString());
+//
+//        setLetterIfChanged();
+        // NAY
 
-        // Display anything required
-//        mainRenderer.display(postProcessedFrame);
+
+        // YAY
+        mainRenderer.display(postProcessedFrame);
+        // YAY
 
         // Return processed Mat
         return classifiedFrame.getRGBA();
@@ -185,8 +191,6 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
         if (mOpenCvCameraView != null)
             mOpenCvCameraView.disableView();
     }
-
-
 
     public void onCameraViewStarted(int width, int height) {
 
@@ -232,8 +236,8 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
             modLetter = currentLetter;
             if (modLetter.equals("NONE"))
                 modLetter = "?";
-            if (modLetter.equals("SPACE"))
-                modLetter = " ";
+            if (modLetter.equals("ERROR"))
+                modLetter = "Unknown";
             setPossibleLetter(modLetter);
         }
     }
