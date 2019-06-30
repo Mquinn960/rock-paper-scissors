@@ -6,11 +6,21 @@ images_per_class = 10
 test_to_train_ratio = 0.2 
 init_delay = 3
 delaybetween = 0.2 
+base_path = "..\\datasets\\"
+dataset_name = "career-ready\\"
 train_path = "train"
 test_path = "test"
 classes = ["rock", "paper", "scissors", "none"]
 # classes = ["rock", "paper", "scissors", "lizard", "spock", "none"]
 participant = input("Please enter participant name: ").upper()
+
+paths = [base_path + dataset_name + train_path,
+         base_path + dataset_name + test_path]
+
+for path in paths:
+    if path != "":
+        if os.path.exists(path) == False:
+            os.makedirs(path)
 
 font                   = cv2.FONT_HERSHEY_SIMPLEX
 bottomLeftCornerOfText = (50,200)
@@ -75,9 +85,9 @@ while True:
                     break
 
                 if (img_counter <= train_cut_off):
-                    img_name = train_path + "/{}_{}_{}.png".format(image_class, participant, img_counter)
+                    img_name = base_path + dataset_name + train_path + "/{}_{}_{}.png".format(image_class, participant, img_counter)
                 else:
-                    img_name = test_path + "/{}_{}_{}.png".format(image_class, participant, img_counter)
+                    img_name = base_path + dataset_name + test_path + "/{}_{}_{}.png".format(image_class, participant, img_counter)
                 cv2.imwrite(img_name, frame)
                 print("{} written!".format(img_name))
                 img_counter += 1
