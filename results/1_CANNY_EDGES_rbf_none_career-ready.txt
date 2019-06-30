@@ -1,0 +1,181 @@
+RUN 1
+Features: CANNY_EDGES
+SVM Kernel: rbf
+Dimensionality Reduction: none
+Dataset: career-ready
+___________________________________________________________
+
+curDir: train
+Train Sample 1: NONE_BOB_1.png
+Train Sample 2: NONE_BOB_2.png
+Train Sample 3: NONE_BOB_3.png
+Train Sample 4: NONE_BOB_4.png
+Train Sample 5: NONE_BOB_5.png
+Train Sample 6: NONE_BOB_6.png
+Train Sample 7: NONE_BOB_7.png
+Train Sample 8: NONE_BOB_8.png
+Train Sample 9: NONE_MATT_1.png
+Train Sample 10: NONE_MATT_2.png
+Train Sample 11: NONE_MATT_3.png
+Train Sample 12: NONE_MATT_4.png
+Train Sample 13: NONE_MATT_5.png
+Train Sample 14: NONE_MATT_6.png
+Train Sample 15: NONE_MATT_7.png
+Train Sample 16: NONE_MATT_8.png
+Train Sample 17: NONE_STEPH_1.png
+Train Sample 18: NONE_STEPH_2.png
+Train Sample 19: NONE_STEPH_3.png
+Train Sample 20: NONE_STEPH_4.png
+Train Sample 21: NONE_STEPH_5.png
+Train Sample 22: NONE_STEPH_6.png
+Train Sample 23: NONE_STEPH_7.png
+Train Sample 24: NONE_STEPH_8.png
+Train Sample 25: PAPER_BOB_1.png
+Train Sample 26: PAPER_BOB_2.png
+Train Sample 27: PAPER_BOB_3.png
+Train Sample 28: PAPER_BOB_4.png
+Train Sample 29: PAPER_BOB_5.png
+Train Sample 30: PAPER_BOB_6.png
+Train Sample 31: PAPER_BOB_7.png
+Train Sample 32: PAPER_BOB_8.png
+Train Sample 33: PAPER_MATT_1.png
+Train Sample 34: PAPER_MATT_2.png
+Train Sample 35: PAPER_MATT_3.png
+Train Sample 36: PAPER_MATT_4.png
+Train Sample 37: PAPER_MATT_5.png
+Train Sample 38: PAPER_MATT_6.png
+Train Sample 39: PAPER_MATT_7.png
+Train Sample 40: PAPER_MATT_8.png
+Train Sample 41: PAPER_STEPH_1.png
+Train Sample 42: PAPER_STEPH_2.png
+Train Sample 43: PAPER_STEPH_3.png
+Train Sample 44: PAPER_STEPH_4.png
+Train Sample 45: PAPER_STEPH_5.png
+Train Sample 46: PAPER_STEPH_6.png
+Train Sample 47: PAPER_STEPH_7.png
+Train Sample 48: PAPER_STEPH_8.png
+Train Sample 49: ROCK_BOB_1.png
+Train Sample 50: ROCK_BOB_2.png
+Train Sample 51: ROCK_BOB_3.png
+Train Sample 52: ROCK_BOB_4.png
+Train Sample 53: ROCK_BOB_5.png
+Train Sample 54: ROCK_BOB_6.png
+Train Sample 55: ROCK_BOB_7.png
+Train Sample 56: ROCK_BOB_8.png
+Train Sample 57: ROCK_MATT_1.png
+Train Sample 58: ROCK_MATT_2.png
+Train Sample 59: ROCK_MATT_3.png
+Train Sample 60: ROCK_MATT_4.png
+Train Sample 61: ROCK_MATT_5.png
+Train Sample 62: ROCK_MATT_6.png
+Train Sample 63: ROCK_MATT_7.png
+Train Sample 64: ROCK_MATT_8.png
+Train Sample 65: ROCK_STEPH_1.png
+Train Sample 66: ROCK_STEPH_2.png
+Train Sample 67: ROCK_STEPH_3.png
+Train Sample 68: ROCK_STEPH_4.png
+Train Sample 69: ROCK_STEPH_5.png
+Train Sample 70: ROCK_STEPH_6.png
+Train Sample 71: ROCK_STEPH_7.png
+Train Sample 72: ROCK_STEPH_8.png
+Train Sample 73: SCISSORS_BOB_1.png
+Train Sample 74: SCISSORS_BOB_2.png
+Train Sample 75: SCISSORS_BOB_3.png
+Train Sample 76: SCISSORS_BOB_4.png
+Train Sample 77: SCISSORS_BOB_5.png
+Train Sample 78: SCISSORS_BOB_6.png
+Train Sample 79: SCISSORS_BOB_7.png
+Train Sample 80: SCISSORS_BOB_8.png
+Train Sample 81: SCISSORS_MATT_1.png
+Train Sample 82: SCISSORS_MATT_2.png
+Train Sample 83: SCISSORS_MATT_3.png
+Train Sample 84: SCISSORS_MATT_4.png
+Train Sample 85: SCISSORS_MATT_5.png
+Train Sample 86: SCISSORS_MATT_6.png
+Train Sample 87: SCISSORS_MATT_7.png
+Train Sample 88: SCISSORS_MATT_8.png
+Train Sample 89: SCISSORS_STEPH_1.png
+Train Sample 90: SCISSORS_STEPH_2.png
+Train Sample 91: SCISSORS_STEPH_3.png
+Train Sample 92: SCISSORS_STEPH_4.png
+Train Sample 93: SCISSORS_STEPH_5.png
+Train Sample 94: SCISSORS_STEPH_6.png
+Train Sample 95: SCISSORS_STEPH_7.png
+Train Sample 96: SCISSORS_STEPH_8.png
+
+Total Image Processing Time: 00:00:01.518
+Average Image Processing Time: 00:00:00.15
+
+Actual SVM Training Time: 00:00:16.872
+Actual PCA Time: 00:00:00.0
+
+curDir: test
+Test Sample 1: NONE_BOB_10.png
+Test Sample 2: NONE_BOB_9.png
+Test Sample 3: NONE_MATT_10.png
+Test Sample 4: NONE_MATT_9.png
+Test Sample 5: NONE_STEPH_10.png
+Test Sample 6: NONE_STEPH_9.png
+Test Sample 7: PAPER_BOB_10.png
+Test Sample 8: PAPER_BOB_9.png
+Test Sample 9: PAPER_MATT_10.png
+Test Sample 10: PAPER_MATT_9.png
+Test Sample 11: PAPER_STEPH_10.png
+Test Sample 12: PAPER_STEPH_9.png
+Test Sample 13: ROCK_BOB_10.png
+Test Sample 14: ROCK_BOB_9.png
+Test Sample 15: ROCK_MATT_10.png
+Test Sample 16: ROCK_MATT_9.png
+Test Sample 17: ROCK_STEPH_10.png
+Test Sample 18: ROCK_STEPH_9.png
+Test Sample 19: SCISSORS_BOB_10.png
+Test Sample 20: SCISSORS_BOB_9.png
+Test Sample 21: SCISSORS_MATT_10.png
+Test Sample 22: SCISSORS_MATT_9.png
+Test Sample 23: SCISSORS_STEPH_10.png
+Test Sample 24: SCISSORS_STEPH_9.png
+
+Total Image Processing Time: 00:00:00.374
+Average Image Processing Time: 00:00:00.15
+
+Actual Testing Time: 00:00:00.10
+
+SAMPLE CATEGORY MATRIX
+______________________
+
+CLASS: NONE
+TP: 
+TN: 7 8 9 10 11 12 13 14 16 17 18 19 20 22 23 24 
+FP: 
+FN: 
+
+CLASS: ROCK
+TP: 13 14 16 17 18 
+TN: 7 8 9 10 11 12 19 20 22 23 24 
+FP: 15 
+FN: 21 
+
+CLASS: PAPER
+TP: 7 8 9 10 11 12 
+TN: 13 14 16 17 18 19 20 22 23 24 
+FP: 
+FN: 15 
+
+CLASS: SCISSORS
+TP: 19 20 22 23 24 
+TN: 7 8 9 10 11 12 13 14 16 17 18 
+FP: 21 
+FN: 
+
+SIMPLE CONFUSION MATRIX
+______________________
+
+5 1 0 0 
+0 5 1 0 
+0 0 6 0 
+0 1 0 5 
+
+
+Training Phase Time: 00:00:19.706
+Testing Phase Time: 00:00:00.519
+Total Run Time: 00:00:20.225
