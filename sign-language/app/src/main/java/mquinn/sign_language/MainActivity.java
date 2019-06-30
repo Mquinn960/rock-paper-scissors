@@ -56,11 +56,6 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
 
     private IRenderer mainRenderer;
 
-    private Button btnAdd, btnClear, btnBack;
-    private TextView txtView;
-
-    private String currentLetter, previousLetter, modLetter;
-
     private DetectionMethod detectionMethod;
 
     private BaseLoaderCallback  mLoaderCallback = new BaseLoaderCallback(this) {
@@ -101,39 +96,6 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
             ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA}, 1);
         }
 
-        btnAdd = (Button) findViewById(R.id.button_add);
-        btnClear = (Button) findViewById(R.id.button_clear);
-        btnBack = (Button) findViewById(R.id.button_back);
-        txtView = (TextView) findViewById(R.id.textView);
-
-
-        btnAdd.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                if (!modLetter.equals("?"))
-                    txtView.append(modLetter);
-            }
-        });
-        btnClear.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                txtView.setText("");
-            }
-        });
-        btnBack.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                txtView.setText(txtView.getText().toString().substring(0, txtView.getText().toString().length() - 1));
-            }
-        });
-
-
     }
 
     public Mat onCameraFrame(CvCameraViewFrame inputFrame) {
@@ -150,18 +112,7 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
         // Actual frame classification
         classifiedFrame = frameClassifier.process(postProcessedFrame);
 
-
-        // NAY
-//        previousLetter = currentLetter;
-//        currentLetter = getDisplayableLetter(classifiedFrame.getLetterClass().toString());
-//
-//        setLetterIfChanged();
-        // NAY
-
-
-        // YAY
         mainRenderer.display(postProcessedFrame);
-        // YAY
 
         // Return processed Mat
         return classifiedFrame.getRGBA();
@@ -229,46 +180,6 @@ public class MainActivity extends Activity implements CvCameraViewListener2 {
                             new UpScalingFramePostProcessor(),
                             new ResizingFrameProcessor(SizeOperation.UP)
                         );
-    }
-
-    private void setLetterIfChanged(){
-        if (!currentLetter.equals(previousLetter)){
-            modLetter = currentLetter;
-            if (modLetter.equals("NONE"))
-                modLetter = "?";
-            if (modLetter.equals("ERROR"))
-                modLetter = "Unknown";
-            setPossibleLetter(modLetter);
-        }
-    }
-
-    private void setPossibleLetter(final String currentLetterForMod){
-
-        runOnUiThread(new Runnable() {
-
-            @Override
-            public void run() {
-
-                if (txtView.getText().toString().length() > 0)
-                    txtView.setText(txtView.getText().toString().substring(0, txtView.getText().toString().length() - 1));
-
-                txtView.append(currentLetterForMod);
-
-            }
-        });
-    }
-
-    private String getDisplayableLetter(String letter){
-
-        switch (letter){
-            case "NONE":
-                return "?";
-            case "SPACE":
-                return " ";
-            default:
-                return letter;
-        }
-
     }
 
     private File initialiseXMLTrainingData(){

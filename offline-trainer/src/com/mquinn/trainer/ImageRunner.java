@@ -72,6 +72,7 @@ public class ImageRunner {
 
     // Recursively process files in all nested directories
     private void getFilesRecursive(File curDir) {
+        logger.log("curDir: " + curDir.getName(), true);
         File[] filesList = curDir.listFiles();
         if (filesList != null && filesList.length > 0) {
             for(File file : filesList){

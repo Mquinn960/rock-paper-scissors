@@ -137,8 +137,6 @@ public class SvmTestRunner {
                 logger.log("", true);
             }
             logger.log("", true);
-
-            System.out.println(Arrays.deepToString(finalMatrix));
         }
 
         // Print confusion matrix simple
